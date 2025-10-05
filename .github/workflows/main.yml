@@ -2,15 +2,15 @@ name: Email Step Test
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
-
+      
       - name: 23f3003273@ds.study.iitm.ac.in
         run: echo "Hello, world!"
