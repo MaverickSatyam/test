@@ -1,0 +1,24 @@
+name: Cache Prime Example
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  cache-prime:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: prime-cache-ae1ed24
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip  # You can adjust path depending on what you want to cache
+          key: cache-ae1ed24
+
+      - name: Show cache result
+        run: echo "Cache hit: ${{ steps.cache-step.outputs.cache-hit }}"
